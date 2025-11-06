@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <head>
             <title>Chatbot Demo</title>
-            <link rel="stylesheet" href="chtbt.css">
+            <link rel="stylesheet" href="../static/styles.css">
+            <link rel="" href="">
 </head>
 <body>
 <div class="chat-container">
         <div class="chat-header">
-            <div class="chat-avatar">cc</div>
+            <div>
+                <img src="../static/images/image.png" alt="cc" class="icon-image">
+            </div>
                 <div>
                     <h2>Chatbot Demo</h2>
-                    <p class="status">Online</p>
+                    <!-- <p class="status">Online</p> -->
                 </div>
         </div>
 
-    <div class="chat-body">
-        <div class="bot-message">
-        Hello! I'm a demo chatbot. Type a message to see how I respond.
-        </div>
-            <div class="user-message">
-        Hi there! This looks great.
-            </div>
-    </div>
+    <div class="chat-body" id="chat-body"></div>
 
         <div class="chat-input">
-            <input type="text" placeholder="Type a message..." />
-            <button>Send</button>
+            <input type="text" placeholder="Type a message..."  id="userinput"/>
+            <button type="button" id="sendbutton">Send</button>
         </div>
 </div>
-<script src="chtbt.js"></script>
+<script src="../static/script.js"></script>
 </body>
 </html>
