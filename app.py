@@ -26,6 +26,15 @@ def init_db():
             timestamp TEXT NOT NULL
         )
     """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS wiki_cache (
+        topic TEXT PRIMARY KEY,
+        summary TEXT NOT NULL,
+        timestamp TEXT NOT NULL
+    )
+""")
+
+
     conn.commit()
     conn.close()
 
