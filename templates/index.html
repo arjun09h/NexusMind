@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
             <title>Chatbot Demo</title>
-            <link rel="stylesheet" href="../static/styles.css">
-            <link rel="" href="">
+            <link rel="stylesheet" href="{{url_for('static', filename = 'styles.css' )}}">
+            
 </head>
 <body>
 <div class="chat-container">
@@ -19,10 +19,10 @@
     <div class="chat-body" id="chat-body"></div>
 
         <div class="chat-input">
-            <input type="text" placeholder="Type a message..."  id="userinput"/>
-            <button type="button" id="sendbutton">Send</button>
+                <input type="text" placeholder="Type a message..."  id="userinput"/>
+                <button type="button" name="sendbutton" id="sendbutton">Send</button>
         </div>
 </div>
-<script src="../static/script.js"></script>
+<script src="{{url_for ('static', filename = 'script.js')}}"></script>
 </body>
 </html>

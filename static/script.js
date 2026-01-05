@@ -8,29 +8,40 @@ userinput.addEventListener("keypress",function(event){
         }
     }
 )
-function Sendmessage(){
-    const message=userinput.value.trim();
-    if(message==="") return;  // IGNORE EMPTY MESSAGES
-    const usermessage=document.createElement("div");
-    usermessage.classList.add("user-message");
-    usermessage.textContent=message;
-    chatbody.appendChild(usermessage);
-    userinput.value=""; //after sending empty the text box
-    chatbody.scrollTop=chatbody.scrollHeight;
+function Sendmessage() {
+    const message = userinput.value.trim();
+    if (message === "") return;
 
-    setTimeout(() => {
-        const botmessage=document.createElement("div");
+    
+    const usermessage = document.createElement("div");
+    usermessage.classList.add("user-message");
+    usermessage.textContent = message;
+    chatbody.appendChild(usermessage);
+    userinput.value = "";
+    chatbody.scrollTop = chatbody.scrollHeight;
+
+    // Send message to Flask
+    fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        const botmessage = document.createElement("div");
         botmessage.classList.add("bot-message");
-        botmessage.textContent=getbotresponse(message);
+        botmessage.textContent = data.reply;
         chatbody.appendChild(botmessage);
-        chatbody.scrollTop=chatbody.scrollHeight;
-    },500);
+        chatbody.scrollTop = chatbody.scrollHeight;
+    })
+    .catch(() => {
+    const botmessage = document.createElement("div");
+    botmessage.classList.add("bot-message");
+    botmessage.textContent = "Server is not responding.";
+    chatbody.appendChild(botmessage);
+    chatbody.scrollTop = chatbody.scrollHeight;
+});
 }
-function getbotresponse(message){
-    const responses={
-        "hi":"Hello! How can I help you?",
-        "how are you?":"I'm a bot, but I'm functioning as expected!",
-        "what is your name?":"I'm ChatBot, your virtual assistant.",
-        "bye":"Goodbye! Have a great day!"
-    };
-    return responses[message.toLowerCase()] || "I'm sorry, I don't understand that.";}
+

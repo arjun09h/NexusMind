@@ -1,8 +1,6 @@
 # NexusMind
 
-<!-- Note: Replace with the actual URL once you upload the logo -->
 
-An intelligent, multi-tool chatbot built in a 7-day team sprint. NexusMind uses a "router" to get the best answers from specialized tools like Wikipedia and Ollama.
 
 Core Features
 
@@ -20,7 +18,6 @@ Frontend Lead: [Ansh Mehra]
 
 Backend Lead: [Arjun Singh]
 
-Tools Lead: [Randeep Kaur]
 
 Tech Stack
 
@@ -28,7 +25,7 @@ Frontend: HTML5, CSS3 (Flexbox), Vanilla JavaScript (ES6+ Fetch)
 
 Backend: Python 3, Flask, Flask-CORS
 
-Tools: Wikipedia (Python Library), Ollama (via REST API)
+Tools: 
 
 
 Project Structure
